@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="sentence" type="text" id="lastWordSentence"><button onclick="findLastWord()">ok</button> <br>
+    <br>
+    <input placeholder="censor" type="text" id="censorNum"><button onclick="censorNums()">ok</button> <br> <br>
+    <input placeholder="count" type="text" id="count"><button onclick="writeSomething()">ok</button> <br> <br>
+    <p>netice consoledadi</p>
+
+    <script>
+
+        const lastWordSentence = document.getElementById("lastWordSentence");
+        const censorNum = document.getElementById("censorNum");
+        const count = document.getElementById("count");
+
+        function findLastWord() {
+            let value = lastWordSentence.value;
+            let newTxt = "";
+            for (let i = value.length - 1; i >= 0; i--) {
+                if (value[i] != " ") {
+                    newTxt += value[i];
+                }
+                else break;
+            }
+            let reversedTxt = "";
+            for (let i = newTxt.length - 1; i >= 0; i--) {
+                reversedTxt += newTxt[i];
+            }
+            console.log(reversedTxt);
+        }
+
+        function censorNums() {
+            let value = censorNum.value;
+            let updatedNum = "";
+            for (let i = 0; i < value.length; i++) {
+                if (i > value.length - 5) {
+                    updatedNum += value[i];
+                }
+                else updatedNum += "*";
+            }
+            console.log(updatedNum);
+
+        }
+
+        function writeSomething() {
+            let numcount = +count.value;
+
+            let txt = `There are ${numcount} `;
+            for (let i = 0; i < numcount; i++) {
+                txt += "🍎"
+            }
+            txt += "-s in the bag 👜";
+            console.log(txt);
+            
+        }
+    </script>
+</body>
+
+</html>
